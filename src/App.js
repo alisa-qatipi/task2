@@ -11,6 +11,7 @@ import wordpressHosting from "./Components/Content/WordPressHosting";
 import emailhosting from "./Components/Content/EmailHosting";
 import vpsHostingServers from "./Components/Content/VPSHostingServers";
 import freeHosting from "./Components/Content/FreeHosting";
+import Alisa from './Alisa'
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
@@ -48,21 +49,21 @@ function App() {
 
   return (
     <div className="App">
-      <Tabs defaultIndex={0} onSelect={(index) => console.log(index)}>
-        <TabList>
-          <Tab>Domains</Tab>
-          <Tab>Web Hosting</Tab>
-          <Tab>Dedicated Servers</Tab>
-          <Tab>Virtual Cloud Servers</Tab>
-          <Tab>WordPress Hosting</Tab>
-          <Tab>Email Hosting</Tab>
-          <Tab>VPS Hosting Servers</Tab>
-          <Tab>Free Hosting</Tab>
+      <Tabs  defaultIndex={0} onSelect={(index) => console.log(index)}>
+        <TabList className="tablist">
+          <Tab >Domains</Tab>
+          <Tab >Dedicated Servers</Tab>
+          <Tab >Web Hosting</Tab>
+          <Tab >Virtual Cloud Servers</Tab>
+          <Tab >WordPress Hosting</Tab>
+          <Tab >Email Hosting</Tab>
+          <Tab >VPS Hosting Servers</Tab>
+          <Tab >Free Hosting</Tab>
         </TabList>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {domains.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -71,9 +72,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {webHosting.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -82,9 +83,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {dedicatedServers.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -93,9 +94,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {virtualCloudServers.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -104,9 +105,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {wordpressHosting.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -115,9 +116,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {emailhosting.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -126,9 +127,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {vpsHostingServers.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -137,9 +138,9 @@ function App() {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="container-fluid mt-3 mb-3">
+          <div className="container-fluid">
             <div className="container">
-              <div className="d-flex flex-wrap gap-5 align-items-center">
+              <div className="containing">
                 {freeHosting.map((el) => (
                   <Card title={el.title} price={el.price} />
                 ))}
@@ -151,11 +152,8 @@ function App() {
 
 {/* one question with toggle */}
       <div className="container-fluid mb-4 border col-10">
-        <div className="container text-start">
-          <div
-            onClick={handleTitleClick}
-            className="question d-flex justify-content-between pt-2"
-          >
+        <div className="firstQuestion">
+          <div onClick={handleTitleClick} className="question d-flex justify-content-between pt-2">
             <h4>Why park a domain name in Parkname?</h4>
             <p >
               {showParagraph ? (
@@ -177,10 +175,10 @@ function App() {
 
 {/* multiple questions */}
       <div className="container-fluid mb-4 border col-10">
-        <div className="container text-start">
+        <div className="firstQuestion container text-start">
           <div
             onClick={handleTitleClick2}
-            className="question d-flex justify-content-between border-bottom mb-2"
+            className="question"
           >
             <div className="left-side d-flex gap-3">
               <div className="icon mt-3">
